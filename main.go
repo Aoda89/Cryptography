@@ -4,14 +4,14 @@ import (
 	"fmt"
 )
 
-type RS4 struct {
+type RС4 struct {
 	bytes [256]byte
 	x     int
 	y     int
 }
 
 //Генератор псевдослучайной последовательности (Pseudo-Random Generation Algorithm):
-func (field RS4) numberGeneration() int {
+func (field RС4) numberGeneration() int {
 
 	field.x = (field.x + 1) % 256
 	field.y = (field.y + int(field.bytes[field.x])) % 256
@@ -25,7 +25,7 @@ func (field RS4) numberGeneration() int {
 }
 
 //Алгоритм ключевого расписания (Key-Scheduling Algorithm):
-func (field RS4) keyGeneration(key string) {
+func (field RС4) keyGeneration(key string) {
 
 	transformKey := []byte(key)
 	lenghtKey := len(transformKey)
@@ -61,7 +61,7 @@ func main() {
 
 	var (
 		pick = '0'
-		key  = '0'
+		key  string
 	)
 
 	mainMenu()
